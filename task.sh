@@ -15,5 +15,6 @@ rm backup_reserve.sql
 
 # Data only recovery ShopDB > ShopDBDevelopment
 sed 's/ShopDB/ShopDBDevelopment/g' backup_data.sql > backup_dev.sql
+mysql -u "$DB_USER" -p"$DB_PASSWORD" -e "CREATE DATABASE IF NOT EXISTS ShopDBDevelopment;"
 mysql -u "$DB_USER" -p"$DB_PASSWORD" ShopDBDevelopment < backup_dev.sql
 rm backup_dev.sql
